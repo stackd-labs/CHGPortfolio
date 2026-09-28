@@ -1,27 +1,7 @@
-import Nav from "./components/Nav";
-import Hero from "./components/Hero";
-import Marquee from "./components/Marquee";
-import About from "./components/About";
-import Work from "./components/Work";
-import Services from "./components/Services";
-import TechStack from "./components/TechStack";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import ScrollProgress from "./components/ScrollProgress";
+import Journey from "./components/journey/Journey";
 
+// V2: the "step inside the system" journey UI.
+// Switch back to V1: import { PortfolioV1 } from "./components/PortfolioV1" and return <PortfolioV1 />.
 export default function Home() {
-  return (
-    <main className="relative">
-      <ScrollProgress />
-      <Nav />
-      <Hero />
-      <Marquee />
-      <About />
-      <Work />
-      <Services />
-      <TechStack />
-      <Contact />
-      <Footer />
-    </main>
-  );
+  return <Journey />;
 }
