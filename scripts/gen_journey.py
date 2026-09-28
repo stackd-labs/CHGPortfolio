@@ -26,7 +26,7 @@ css = sub(css, [
     ("body{margin:0;background:#1E1A17;font-family:'Geist',ui-sans-serif,system-ui,sans-serif;color:#211C18}",
      ".jr-root{position:fixed;inset:0;z-index:0;overflow:hidden;background:#1E1A17;font-family:'Geist',ui-sans-serif,system-ui,sans-serif;font-weight:400;line-height:normal;color:#211C18}\n"
      ".jr-root svg text{font-family:'Geist Mono',ui-monospace,monospace}"),
-    ("a{color:#B8466E}a:hover{color:#8E2F52}", ".jr-root a{color:#B8466E}.jr-root a:hover{color:#8E2F52}"),
+    ("a{color:#B8466E}a:hover{color:#8E2F52}", ".jr-root :where(a){color:#B8466E}.jr-root :where(a:hover){color:#8E2F52}"),
     ("*{box-sizing:border-box}", ".jr-root *{box-sizing:border-box}"),
     ("html,body{height:100%}\nbody{overflow:hidden}\n", ""),
     (".viewport{position:fixed;inset:0;display:grid;place-items:center;background:#1E1A17}",
