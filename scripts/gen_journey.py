@@ -133,6 +133,7 @@ body = sub(body, [
     ('<path d="M0 760H1440M0 830H1440" stroke="#CDB99C" stroke-width="1"></path>', '<path d="M-4000 760H5440M-4000 830H5440" stroke="#CDB99C" stroke-width="1"></path>'),
     ('<polygon points="106,554 454,554 760,900 250,900" fill="#FFF4E2" opacity=".45"></polygon>', '<polygon points="106,554 454,554 1202,1400 458,1400" fill="#FFF4E2" opacity=".45"></polygon>'),
     ('<div class="enter-tag fadeout">', '<div class="enter-tag fadeout o-desk">'),
+    ('<a class="btn btn-s" href="mailto:chanel@stackdstudiosai.com">chanel@stackdstudiosai.com</a>', '<button class="btn btn-s" data-action="contact">Contact me</button>'),
     ('<header class="fadeout o-in" style="--i: 0;', '<header class="fadeout o-in o-desk o-head" style="--i: 0;'),
     ('<div class="fadeout" style="position: absolute; left: 0; right: 0; top: 724px;', '<div class="fadeout o-desk" style="position: absolute; left: 0; right: 0; top: 724px;'),
     # close the frame, then the phone overlay (outside the scaled canvas)
@@ -153,7 +154,7 @@ body = sub(body, [
 <h1 class="serif">I build your app. <em>Or I’ll rescue it.</em></h1>
 <div class="m-actions">
 <button class="btn btn-p" data-action="enter">Step inside the system<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
-<a class="btn btn-s" href="mailto:chanel@stackdstudiosai.com">Email me</a>
+<button class="btn btn-s" data-action="contact">Contact me</button>
 </div>
 <div class="mono m-hint">OR TAP THE SCREEN ABOVE</div>
 </div>
@@ -256,6 +257,9 @@ inner = sub(inner, [
   window.addEventListener('resize', fit);
   cleanups.push(function () { window.removeEventListener('resize', fit); });'''),
     ("  tick();\n  setInterval(tick, 15000);", "  tick();\n  var clock = setInterval(tick, 15000);\n  cleanups.push(function () { clearInterval(clock); });"),
+    ('''  function enter() {
+    if (state.zooming) return;''', '''  function enter(thenStop) {
+    if (state.zooming) return;'''),
     ('''    state.zooming = true;
     office.classList.add('zoom');
     setTimeout(function () {''', '''    state.zooming = true;
@@ -267,8 +271,10 @@ inner = sub(inner, [
       state.zooming = false;''', '''      buildInside();
       fit();
       state.zooming = false;
+      if (thenStop != null) { go(thenStop); return; }
       var start = $('[data-action="start"]');
       if (start) start.focus({ preventScroll: true });'''),
+    ("    if (a === 'enter') enter();", "    if (a === 'enter') enter();\n    else if (a === 'contact') { if (state.scene === 'inside') go(5); else enter(5); }"),
     ('''    requestAnimationFrame(function () { office.classList.remove('zoom'); });''',
      '''    setTimeout(function () { office.classList.remove('zoom'); officeScene.classList.remove('zooming'); }, 30);'''),
     # map: pan on desktop, fixed band on phones

@@ -106,7 +106,7 @@ export function initJourney(root) {
   /* ================= SCENE CHANGES ================= */
   var officeScene = $('#officeScene'), office = $('#office'), mount = $('#insideMount');
 
-  function enter() {
+  function enter(thenStop) {
     if (state.zooming) return;
     state.zooming = true;
     office.classList.add('zoom');
@@ -120,6 +120,7 @@ export function initJourney(root) {
       buildInside();
       fit();
       state.zooming = false;
+      if (thenStop != null) { go(thenStop); return; }
       var start = $('[data-action="start"]');
       if (start) start.focus({ preventScroll: true });
     }, 1700);
@@ -306,6 +307,7 @@ export function initJourney(root) {
     if (!t) return;
     var a = t.dataset.action;
     if (a === 'enter') enter();
+    else if (a === 'contact') { if (state.scene === 'inside') go(5); else enter(5); }
     else if (a === 'exit') exit();
     else if (a === 'go') go(+t.dataset.stop);
     else if (a === 'start') {
