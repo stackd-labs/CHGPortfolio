@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Chanel Hicks-Gray — Solutions Architect & Builder";
+export const alt = "Chanel Hicks-Gray | AI Architect & Builder";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -70,10 +70,10 @@ export default function Image() {
             marginBottom: 40,
           }}
         >
-          I build the solution,
+          I build your app.
           <br />
           {" "}
-          <span style={{ color: "#C4547A" }}>end to end.</span>
+          <span style={{ color: "#C4547A" }}>Or I rescue it.</span>
         </div>
 
         {/* Divider */}
@@ -97,7 +97,7 @@ export default function Image() {
             marginLeft: 24,
           }}
         >
-          Solutions Architect · Builder · Consultant
+          AI Architect · Builder · App Rescue
         </div>
 
         {/* Bottom domain */}

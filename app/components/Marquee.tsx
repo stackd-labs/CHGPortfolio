@@ -1,15 +1,14 @@
 "use client";
 
 const row1 = [
-  "Next.js", "React", "TypeScript", "Supabase", "Claude AI",
-  "Stripe", "Framer Motion", "Tailwind CSS", "Vercel", "Python",
-  "OpenAI", "Node.js", "Prisma",
+  "Claude", "Agent SDK", "MCP", "Next.js", "React", "TypeScript",
+  "Supabase", "Stripe", "PayPal", "Resend", "Tailwind CSS", "Vercel",
 ];
 
 const row2 = [
-  "Problem Solving", "End-to-End Delivery", "Systems Design", "AI When It Fits",
-  "Automation", "Product Engineering", "Strategy & Advisory",
-  "Human-Centered Design",
+  "App Rescue", "New Builds", "AI Architecture", "Agent Harnesses",
+  "Multi-Agent Orchestration", "Security Hardening", "Payments & Billing",
+  "Team Enablement",
 ];
 
 function Row({ items, reverse = false }: { items: string[]; reverse?: boolean }) {

@@ -41,7 +41,7 @@ export default function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
             <span className="text-xs font-sans text-[var(--taupe)]" style={{ letterSpacing: "0.08em" }}>
-              Available for new projects
+              Taking builds, rescues, and AI architect roles
             </span>
           </motion.div>
 
@@ -61,11 +61,11 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="font-serif text-[2.6rem] md:text-6xl lg:text-[5.5rem] font-semibold text-[var(--charcoal)] leading-[0.97] mb-8"
           >
-            I build the
+            I build your app.
             <br />
-            solution —
+            Or I{"’"}ll
             <br />
-            <em className="text-[var(--rose)] not-italic font-medium">end to end.</em>
+            <em className="text-[var(--rose)] not-italic font-medium">rescue it.</em>
           </motion.h1>
 
           <motion.div
@@ -81,30 +81,38 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.85 }}
             className="text-[var(--taupe)] text-base md:text-xl font-sans font-light max-w-lg leading-relaxed mb-12"
           >
-            Solutions architect, builder, and consultant. I take a problem from
-            strategy to working system &mdash; using AI when it&apos;s the right
-            tool and solid engineering everywhere else &mdash; then make sure
-            your team can run it.
+            AI architect and builder. I ship production systems with real auth,
+            real payments, and real users, and I take over the ones that stalled,
+            broke, or got vibe-coded into a corner. Hire me for the build, or
+            bring me onto your team.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
-            className="flex items-center gap-8"
+            className="flex flex-wrap items-center gap-6 md:gap-8"
           >
             <a
-              href="#work"
+              href="#contact"
               className="inline-block text-sm font-sans font-medium text-[var(--charcoal)] bg-[var(--gold)] px-7 py-3.5 rounded-sm hover:bg-[var(--charcoal)] hover:text-white transition-colors duration-300"
               style={{ letterSpacing: "0.05em" }}
             >
-              See the work
+              Build or rescue my app
             </a>
             <a
-              href="#about"
+              href="#hire"
               className="inline-block text-sm font-sans font-medium text-[var(--taupe)] hover:text-[var(--gold)] transition-colors duration-300 border-b border-[var(--border)] pb-0.5"
             >
-              Learn more
+              Hire me
+            </a>
+            <a
+              href="https://github.com/stackd-labs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-sm font-sans font-medium text-[var(--taupe)] hover:text-[var(--gold)] transition-colors duration-300 border-b border-[var(--border)] pb-0.5"
+            >
+              GitHub
             </a>
           </motion.div>
 
@@ -115,9 +123,9 @@ export default function Hero() {
             className="flex flex-wrap items-center gap-6 md:gap-8 pt-10 border-t border-[var(--border)]"
           >
             {[
-              { value: "12+", label: "Products Shipped" },
-              { value: "30+", label: "Systems Built" },
+              { value: "5", label: "Live Client Systems" },
               { value: "6+", label: "Industries Served" },
+              { value: "Web · AI · Games", label: "What I Ship" },
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="font-serif text-2xl font-semibold text-[var(--charcoal)]">{stat.value}</p>

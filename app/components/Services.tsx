@@ -3,46 +3,47 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const agents = [
-  { name: "Lead Qualification Agent", desc: "Scores inbound leads in real time, routes hot prospects to your team, and follows up with cold ones automatically." },
-  { name: "Client Onboarding Agent", desc: "Walks new clients through intake, collects documents, answers FAQs, and sets up accounts without anyone on your team lifting a finger." },
-  { name: "Customer Support Agent", desc: "Handles your most common support questions 24/7, escalates complex issues to humans, and logs everything." },
-  { name: "Content Creation Agent", desc: "Drafts social posts, emails, blog content, and ad copy from a brief — in your voice, on brand, every time." },
-  { name: "Sales Outreach Agent", desc: "Researches prospects, personalizes outreach messages, and sequences follow-ups until someone responds." },
-  { name: "Scheduling & Booking Agent", desc: "Manages your calendar, confirms appointments, sends reminders, and handles reschedules without the back-and-forth." },
-  { name: "Operations Monitor", desc: "Watches your dashboards and data feeds, flags anomalies, and sends alerts before small problems become big ones." },
-  { name: "Document Processing Agent", desc: "Reads contracts, invoices, intake forms, and reports. Extracts key data, summarizes, and routes to the right place." },
-  { name: "Internal Knowledge Agent", desc: "Answers your team's questions using your SOPs, docs, and policies. No more digging through Notion or Slack." },
-  { name: "Data & Reporting Agent", desc: "Pulls reports from your tools, summarizes trends, and delivers clean insights to your inbox on whatever cadence you need." },
-  { name: "Project Management Agent", desc: "Tracks task progress, sends status updates to stakeholders, flags blockers, and keeps projects on deadline without manual check-ins." },
-  { name: "Invoice & Billing Agent", desc: "Generates invoices, sends payment reminders, logs receipts, and follows up on overdue accounts so nothing falls through the cracks." },
+const offers = [
+  {
+    tag: "01 / NEW BUILD",
+    title: "Build your app",
+    desc: "From idea to live product: data model, auth, payments, email, admin tools, and the AI features that actually earn their place. You get a system you own, documented, deployed, and handed off.",
+    points: ["Next.js + Supabase + Stripe/PayPal", "Portals, dashboards, booking, billing", "AI features and agents where they fit"],
+  },
+  {
+    tag: "02 / RESCUE",
+    title: "Rescue your app",
+    desc: "Stalled build, a contractor who disappeared, or an AI-generated codebase that works until it doesn't. I audit it, stabilize it, fix the security holes, and get it shipping again, without a from-scratch rewrite unless it truly needs one.",
+    points: ["Codebase + security audit", "Auth, RLS, and payment fixes", "Deploy pipeline and handoff docs"],
+  },
+  {
+    tag: "03 / HIRE ME",
+    title: "AI Architect / Builder",
+    desc: "Contract or fractional. I design and build agent harnesses, multi-agent orchestration, and AI workflows for teams that need them to run reliably in production, not just in a demo.",
+    points: ["Agent harnesses + orchestration", "Claude Agent SDK, MCP, tool use", "Evals, guardrails, and team enablement"],
+  },
 ];
 
 const services = [
   {
     number: "01",
     title: "Systems Architecture",
-    desc: "Designing the internal operating system of your business: workflows, automations, data structures, and integrations that scale without adding headcount.",
+    desc: "Workflows, data structures, and integrations that scale without adding headcount.",
   },
   {
     number: "02",
-    title: "AI Strategy & Integration",
-    desc: "Not just plugging in tools. Building AI into the core of your product or operations in a way that creates real leverage, from prompt engineering to full agent systems.",
+    title: "AI Engineering",
+    desc: "Agents, tool use, retrieval, and AI features built into the product itself, with the guardrails that keep them honest.",
   },
   {
     number: "03",
-    title: "Business Design",
-    desc: "Strategy meets execution. I help founders clarify their model, package their offer, and build the infrastructure to deliver consistently and profitably.",
+    title: "Full-Stack Product Engineering",
+    desc: "Web apps, portals, and internal tools that are technically solid, documented, and built to last.",
   },
   {
     number: "04",
-    title: "AI Product Engineering",
-    desc: "Full-stack product development with engineering rigor. Web apps, internal tools, and AI products that are technically solid, well-documented, and built to last — not throwaway prototypes.",
-  },
-  {
-    number: "05",
     title: "Education & Enablement",
-    desc: "Workshops and team training that get your people fluent in AI, plus documentation and SOPs so the systems I build keep running long after the engagement ends. (Now booking workshops.)",
+    desc: "Training and SOPs so your team can run what I build long after the engagement ends.",
   },
 ];
 
@@ -84,73 +85,63 @@ export default function Services() {
           </p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
             <h2 className="font-serif text-4xl md:text-5xl font-medium text-[var(--charcoal)] max-w-md leading-tight">
-              How I can help.
+              Build it, rescue it, or bring me in.
             </h2>
             <p className="text-[var(--taupe)] font-sans font-light text-base max-w-xs leading-relaxed">
-              I work best with founders and teams who are ready to build and want someone who can advise strategically, execute technically, and leave the team able to run it.
+              Three ways to work with me. Every one ends with a system that runs in production and a team that knows how to run it.
             </p>
           </div>
         </FadeIn>
 
-        <div className="space-y-4">
-          {services.map((service, i) => (
-            <FadeIn key={service.number} delay={i * 0.07}>
-              <div className="group bg-white border-l-2 border-transparent hover:border-[var(--gold)] border border-[var(--border)] p-7 md:p-8 flex flex-col md:flex-row md:items-start gap-6 transition-all duration-300 rounded-sm hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
-                <span className="font-serif text-[var(--gold)] text-sm font-medium shrink-0 pt-1">
-                  {service.number}
-                </span>
-                <div>
-                  <h3 className="font-serif text-xl md:text-2xl font-medium text-[var(--charcoal)] mb-3 group-hover:text-[var(--gold)] transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-[var(--taupe)] font-sans font-light text-sm leading-relaxed max-w-2xl">
-                    {service.desc}
-                  </p>
-                </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {offers.map((offer, i) => (
+            <FadeIn key={offer.tag} delay={i * 0.08} className="h-full">
+              <div
+                id={offer.tag.includes("HIRE") ? "hire" : undefined}
+                className={`group h-full flex flex-col border rounded-sm p-7 md:p-8 transition-all duration-300 hover:-translate-y-1 ${
+                  offer.tag.includes("HIRE")
+                    ? "bg-[var(--charcoal)] border-[var(--charcoal)] text-white hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]"
+                    : "bg-white border-[var(--border)] hover:border-[var(--gold)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+                }`}
+              >
+                <p className="text-[10px] font-sans font-semibold text-[var(--gold)] mb-5" style={{ letterSpacing: "0.2em" }}>
+                  {offer.tag}
+                </p>
+                <h3 className={`font-serif text-2xl font-medium mb-4 ${offer.tag.includes("HIRE") ? "text-white" : "text-[var(--charcoal)]"}`}>
+                  {offer.title}
+                </h3>
+                <p className={`font-sans font-light text-sm leading-relaxed mb-6 flex-grow ${offer.tag.includes("HIRE") ? "text-white/70" : "text-[var(--taupe)]"}`}>
+                  {offer.desc}
+                </p>
+                <ul className="space-y-2">
+                  {offer.points.map((pt) => (
+                    <li key={pt} className={`flex items-start gap-2 text-xs font-sans ${offer.tag.includes("HIRE") ? "text-white/80" : "text-[var(--charcoal)]"}`}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--rose)] shrink-0 mt-1.5" />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </FadeIn>
           ))}
         </div>
 
-        {/* AI Agents subsection */}
-        <FadeIn delay={0.4}>
-          <div className="mt-20 pt-16 border-t border-[var(--border)]">
-            <p className="text-[var(--rose-text)] text-xs font-sans font-semibold mb-4" style={{ letterSpacing: "0.2em" }}>
-              AI AGENTS WE BUILD
-            </p>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 gap-4">
-              <h3 className="font-serif text-3xl md:text-4xl font-medium text-[var(--charcoal)] leading-tight max-w-md">
-                What a custom agent
-                <br />can do for your business.
-              </h3>
-              <p className="text-[var(--taupe)] font-sans font-light text-sm max-w-xs leading-relaxed">
-                Every agent is built specifically for your workflow — not a chatbot wrapper, a real system.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {agents.map((agent, i) => (
-                <FadeIn key={agent.name} delay={i * 0.04}>
-                  <div className="group border border-[var(--border)] bg-white rounded-sm p-5 hover:border-[var(--gold)] hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(232,184,75,0.15)] transition-all duration-300">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--rose)] shrink-0" />
-                      <h4 className="font-serif text-base font-medium text-[var(--charcoal)] group-hover:text-[var(--gold)] transition-colors duration-300">
-                        {agent.name}
-                      </h4>
-                    </div>
-                    <p className="text-[var(--taupe)] text-xs font-sans font-light leading-relaxed pl-3.5">
-                      {agent.desc}
-                    </p>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </FadeIn>
+        <div className="mt-16 pt-12 border-t border-[var(--border)] grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((service, i) => (
+            <FadeIn key={service.number} delay={i * 0.06}>
+              <div>
+                <span className="font-serif text-[var(--gold)] text-sm font-medium">{service.number}</span>
+                <h4 className="font-serif text-lg font-medium text-[var(--charcoal)] mt-2 mb-2">{service.title}</h4>
+                <p className="text-[var(--taupe)] font-sans font-light text-sm leading-relaxed">{service.desc}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
 
         <FadeIn delay={0.5}>
           <div className="mt-12 pt-10 border-t border-[var(--border)]">
             <p className="text-[var(--taupe)] font-sans font-light text-sm mb-4">
-              Interested in working together?
+              Not sure which one fits? Tell me where it&apos;s stuck.
             </p>
             <a
               href="#contact"

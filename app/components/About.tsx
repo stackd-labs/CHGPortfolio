@@ -36,7 +36,7 @@ const strengths = [
   },
   {
     title: "AI When It Fits",
-    desc: "I build with AI when it's genuinely the best tool — agents, automation, LLM features — and reach for plain, solid engineering when that wins instead.",
+    desc: "I build with AI when it's genuinely the best tool (agents, automation, LLM features) and reach for plain, solid engineering when that wins instead.",
   },
   {
     title: "Strategy & Enablement",
@@ -99,10 +99,10 @@ export default function About() {
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="text-[var(--charcoal)] font-sans font-light text-base leading-loose">
-                Today I work as a solutions architect &mdash; part strategist,
-                part builder, part teacher. I take on the whole problem: figuring
-                out what to build, building it, and making sure your team can run
-                it. Sometimes the answer is AI. Sometimes it&apos;s a clean
+                Today I work as an AI architect and builder: part strategist,
+                part engineer, part teacher. I take on the whole problem: figuring
+                out what to build, building it (or rescuing the version that
+                stalled), and making sure your team can run it. Sometimes the answer is AI. Sometimes it&apos;s a clean
                 workflow and good engineering. The point is what actually works.
               </p>
             </FadeIn>

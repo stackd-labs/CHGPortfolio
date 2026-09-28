@@ -15,6 +15,22 @@ export default function Footer() {
             Email
           </a>
           <a
+            href="https://github.com/stackd-labs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-sans text-xs text-white/70 hover:text-white transition-colors duration-300"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/chanel-hicks-gray-ms-lpc-r-b673a720"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-sans text-xs text-white/70 hover:text-white transition-colors duration-300"
+          >
+            LinkedIn
+          </a>
+          <a
             href="https://www.threads.net/@chanelhicksgray"
             target="_blank"
             rel="noopener noreferrer"

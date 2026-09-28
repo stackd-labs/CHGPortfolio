@@ -67,9 +67,9 @@ export default function Contact() {
           </p>
           <div className="grid md:grid-cols-3 gap-6 mb-20 pb-16 border-b border-[var(--border)]">
             {[
-              { number: "01", title: "Discovery", desc: "We map your business, pain points, and goals before writing a single line of code." },
+              { number: "01", title: "Discovery or Audit", desc: "New build: we map the business and goals first. Rescue: I audit the codebase and tell you plainly what it needs." },
               { number: "02", title: "Build", desc: "I design and develop the system, keeping you in the loop at every milestone." },
-              { number: "03", title: "Launch & Iterate", desc: "We ship, measure, and refine until it works exactly as intended — and gets better over time." },
+              { number: "03", title: "Launch & Iterate", desc: "We ship, measure, and refine until it works exactly as intended, and it keeps getting better." },
             ].map((step, i) => (
               <FadeIn key={step.number} delay={i * 0.1}>
                 <div className="flex gap-5 items-start">
@@ -95,17 +95,17 @@ export default function Contact() {
                 CONTACT
               </p>
               <h2 className="font-serif text-4xl md:text-5xl font-medium text-[var(--charcoal)] mb-6 leading-tight">
-                Let&apos;s build
+                Building, stuck,
                 <br />
-                something worth
+                or hiring?
                 <br />
-                building.
+                Let&apos;s talk.
               </h2>
             </FadeIn>
 
             <FadeIn delay={0.1}>
               <p className="text-[var(--taupe)] font-sans font-light text-base leading-relaxed mb-10 max-w-sm">
-                Whether you have a clear vision or just a compelling problem, I want to hear it. The best work starts with a real conversation.
+                A new app, one that stalled, or a role on your team. Tell me what you have and where it hurts. I reply within 24 to 48 hours.
               </p>
             </FadeIn>
 
@@ -117,6 +117,24 @@ export default function Contact() {
                 >
                   <span className="w-8 h-px bg-[var(--border)] group-hover:bg-[var(--gold)] transition-colors duration-300" />
                   <span className="font-sans text-sm">chanel@stackdstudiosai.com</span>
+                </a>
+                <a
+                  href="https://github.com/stackd-labs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-[var(--charcoal)] hover:text-[var(--gold)] transition-colors duration-300 group"
+                >
+                  <span className="w-8 h-px bg-[var(--border)] group-hover:bg-[var(--gold)] transition-colors duration-300" />
+                  <span className="font-sans text-sm">GitHub</span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/chanel-hicks-gray-ms-lpc-r-b673a720"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-[var(--charcoal)] hover:text-[var(--gold)] transition-colors duration-300 group"
+                >
+                  <span className="w-8 h-px bg-[var(--border)] group-hover:bg-[var(--gold)] transition-colors duration-300" />
+                  <span className="font-sans text-sm">LinkedIn</span>
                 </a>
                 <a
                   href="https://www.threads.net/@chanelhicksgray"
@@ -219,7 +237,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full bg-transparent border border-[var(--border)] rounded-sm px-4 py-3.5 text-sm font-sans text-[var(--charcoal)] placeholder:text-[var(--border)] focus:outline-none focus:border-[var(--gold)] transition-colors duration-300 resize-none"
-                    placeholder="Tell me about what you're building..."
+                    placeholder="What are you building, what's broken, or what's the role?"
                   />
                 </div>
 

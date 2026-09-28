@@ -5,77 +5,71 @@ import { useRef } from "react";
 
 const categories = [
   {
-    label: "Frontend",
+    label: "AI & Agent Engineering",
     accent: "var(--rose)",
     items: [
-      { name: "Next.js", note: "App Router · 14 & 15" },
-      { name: "React", note: "Server & Client Components" },
+      { name: "Claude (Anthropic)", note: "Opus · Sonnet · Haiku" },
+      { name: "Claude Agent SDK", note: "Tool use · Caching · Agents" },
+      { name: "Claude Code", note: "Skills · Hooks · Subagents" },
+      { name: "Multi-Agent Orchestration", note: "Lead + worker harnesses" },
+      { name: "MCP", note: "Custom servers & integrations" },
+      { name: "Vercel AI SDK", note: "Streaming · UI integration" },
+      { name: "OpenAI · Gemini", note: "When the job calls for it" },
+    ],
+  },
+  {
+    label: "Frontend",
+    accent: "var(--gold)",
+    items: [
+      { name: "Next.js", note: "App Router · 14 to 16" },
+      { name: "React", note: "18 & 19 · Server Components" },
       { name: "TypeScript", note: "Type-safe everything" },
       { name: "Tailwind CSS", note: "v3 & v4" },
+      { name: "shadcn/ui + Radix", note: "Accessible components" },
       { name: "Framer Motion", note: "Animation & transitions" },
-      { name: "shadcn/ui", note: "Component library" },
-      { name: "Radix UI", note: "Accessible primitives" },
+      { name: "Recharts", note: "Dashboards & reporting" },
     ],
   },
   {
     label: "Backend & Data",
     accent: "var(--gold)",
     items: [
-      { name: "Supabase", note: "Postgres · Auth · Storage · Edge" },
-      { name: "Prisma", note: "ORM & migrations" },
-      { name: "PostgreSQL", note: "Relational database" },
-      { name: "Node.js", note: "API routes & serverless" },
-      { name: "Python", note: "Scripting · AI pipelines" },
-      { name: "Redis", note: "Caching & queues" },
-      { name: "Drizzle ORM", note: "Lightweight type-safe ORM" },
-    ],
-  },
-  {
-    label: "AI & Intelligence",
-    accent: "var(--gold)",
-    items: [
-      { name: "Claude (Anthropic)", note: "Opus · Sonnet · Haiku" },
-      { name: "OpenAI", note: "GPT-4o · o3" },
-      { name: "Gemini", note: "Google DeepMind" },
-      { name: "Perplexity AI", note: "Real-time research" },
-      { name: "Anthropic SDK", note: "Tool use · Caching · Agents" },
-      { name: "LangChain", note: "Agent orchestration" },
-      { name: "Vercel AI SDK", note: "Streaming · UI integration" },
+      { name: "Supabase", note: "Postgres · Auth · Storage" },
+      { name: "Row-Level Security", note: "Multi-role access done right" },
+      { name: "PostgreSQL", note: "Schema design · migrations" },
+      { name: "Node.js", note: "API routes · server actions" },
+      { name: "Webhooks & Intake Pipes", note: "System-to-system data" },
+      { name: "Python", note: "Scripting · data jobs" },
     ],
   },
   {
     label: "Payments & Communication",
     accent: "var(--rose)",
     items: [
-      { name: "Stripe", note: "Payments · Webhooks · Subscriptions" },
-      { name: "Resend", note: "Transactional email" },
-      { name: "Twilio", note: "SMS & voice" },
-      { name: "SendGrid", note: "Email delivery" },
-      { name: "Plaid", note: "Financial data" },
+      { name: "Stripe", note: "Checkout · Webhooks · Subscriptions" },
+      { name: "PayPal", note: "Vaulted cards · Invoicing" },
+      { name: "Resend", note: "Transactional & campaign email" },
+      { name: "Google Workspace", note: "Sheets · Drive · Gmail APIs" },
     ],
   },
   {
-    label: "Deployment & DevOps",
+    label: "Deployment & Ops",
     accent: "var(--gold)",
     items: [
-      { name: "Vercel", note: "Hosting · CI/CD · Edge" },
-      { name: "GitHub", note: "Version control" },
-      { name: "Docker", note: "Containerization" },
-      { name: "Cloudflare", note: "CDN · Workers · DNS" },
-      { name: "AWS", note: "S3 · Lambda · EC2" },
+      { name: "Vercel", note: "Hosting · CI/CD · Env" },
+      { name: "GitHub", note: "Version control · Actions" },
+      { name: "Cloudflare", note: "DNS · Workers" },
+      { name: "Security Hardening", note: "Auth · RLS · dependency audits" },
     ],
   },
   {
-    label: "Integrations & Automation",
+    label: "Games & 3D",
     accent: "var(--rose)",
     items: [
-      { name: "Zapier", note: "No-code automation" },
-      { name: "Make (Integromat)", note: "Advanced workflows" },
-      { name: "n8n", note: "Self-hosted automation" },
-      { name: "Notion API", note: "Knowledge base integration" },
-      { name: "Airtable", note: "Structured data & views" },
-      { name: "Google Workspace", note: "Sheets · Docs · Drive APIs" },
-      { name: "Slack API", note: "Team notifications & bots" },
+      { name: "Phaser 3", note: "2D sims · React + Vite" },
+      { name: "Unity", note: "3D management sims" },
+      { name: "Roblox (Luau)", note: "Rojo toolchain" },
+      { name: "Blender", note: "Assets & scene work" },
     ],
   },
 ];
@@ -121,7 +115,7 @@ export default function TechStack() {
               The right tool for each job.
             </h2>
             <p className="text-[var(--taupe)] font-sans font-light text-base max-w-xs leading-relaxed">
-              A full-stack toolkit — frontend to infrastructure, automation to AI. I pick what the problem needs, not the trendiest option.
+              What I actually ship with, from the database to the agent layer. I pick what the problem needs, not the trendiest option.
             </p>
           </div>
         </FadeIn>
@@ -169,7 +163,7 @@ export default function TechStack() {
         <FadeIn delay={0.5}>
           <div className="mt-14 pt-10 border-t border-[var(--border)] flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <p className="text-[var(--taupe)] font-sans font-light text-sm max-w-md leading-relaxed">
-              Every tool is chosen intentionally. The goal is always a system that&apos;s lean, fast, and built to last.
+              Every tool is chosen on purpose. The goal is always a system that&apos;s lean, secure, and built to last.
             </p>
             <a
               href="#contact"
