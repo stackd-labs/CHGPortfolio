@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { HoneypotField, useSpamGuard } from "./HoneypotField";
 
 function FadeIn({
   children,
@@ -43,6 +44,7 @@ export default function Contact() {
   };
 
   const [loading, setLoading] = useState(false);
+  const guard = useSpamGuard();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,7 +52,7 @@ export default function Contact() {
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({ ...formData, ...guard.fields() }),
     });
     setLoading(false);
     if (res.ok) setSent(true);
@@ -181,6 +183,7 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                <HoneypotField value={guard.hp} onChange={guard.setHp} />
                 <div>
                   <label
                     htmlFor="name"

@@ -5,6 +5,7 @@
 export function initJourney(root) {
   var cleanups = [];
   var zoomTimer = null;
+  var openedAt = Date.now(); // spam screening: elapsedMs, see lib/spam-guard.ts
   cleanups.push(function () { if (zoomTimer) clearTimeout(zoomTimer); });
 
 
@@ -276,7 +277,7 @@ export function initJourney(root) {
 
   /* ================= CONTACT (Resend via /api/contact) ================= */
   function send() {
-    var name = $('#cf-name'), email = $('#cf-email'), msg = $('#cf-msg');
+    var name = $('#cf-name'), email = $('#cf-email'), msg = $('#cf-msg'), hp = $('#hp_ref');
     var btn = $('#cf-send'), status = $('#cf-status');
     if (!name || !email || !msg) return;
     if (!name.value.trim() || !email.value.trim() || !msg.value.trim()) {
@@ -288,7 +289,8 @@ export function initJourney(root) {
     fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name.value.trim(), email: email.value.trim(), message: msg.value.trim() })
+      body: JSON.stringify({ name: name.value.trim(), email: email.value.trim(), message: msg.value.trim(),
+        hp_ref: hp ? hp.value : '', elapsedMs: Date.now() - openedAt })
     }).then(function (res) {
       if (!res.ok) throw new Error('send failed');
       name.value = ''; email.value = ''; msg.value = '';
