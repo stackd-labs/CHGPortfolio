@@ -1,7 +1,7 @@
-import Journey from "./components/journey/Journey";
+import { PortfolioV1 } from "./components/PortfolioV1";
 
-// V2: the "step inside the system" journey UI.
-// Switch back to V1: import { PortfolioV1 } from "./components/PortfolioV1" and return <PortfolioV1 />.
+// V1: the scrolling one-pager is the home page again.
+// The V2 journey UI is still in the repo: import Journey from "./components/journey/Journey" and return <Journey />.
 export default function Home() {
-  return <Journey />;
+  return <PortfolioV1 />;
 }
