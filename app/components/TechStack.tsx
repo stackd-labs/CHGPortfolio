@@ -105,8 +105,8 @@ export default function TechStack() {
       <div className="max-w-6xl mx-auto">
         <FadeIn>
           <p
-            className="text-[var(--rose-text)] text-xs font-sans font-semibold mb-4"
-            style={{ letterSpacing: "0.2em" }}
+            className="code-label font-mono text-[var(--rose-text)] text-xs mb-4"
+            style={{ letterSpacing: "0.12em" }}
           >
             TECH STACK
           </p>

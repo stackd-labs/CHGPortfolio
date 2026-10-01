@@ -4,26 +4,6 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-const testimonials = [
-  {
-    quote: "Chanel replaced three separate tools with one platform that actually fits how we work. Placements, billing, and inventory finally live in one place, and her training meant our team was running it confidently from day one.",
-    name: "Villa Concierge Co",
-    title: "Insurance Operations Platform",
-    initial: "V",
-  },
-  {
-    quote: "She understood our studio before she touched the code. The site she built is fast, beautiful, and made for enrollment, and inquiries climbed within the first month of launch.",
-    name: "Capital Core Dance Studio",
-    title: "Midlothian, VA",
-    initial: "C",
-  },
-  {
-    quote: "Full brand site shipped in two weeks with zero revision rounds. Chanel just got it, the work carried the weight a performance brand needs without us having to spell it out.",
-    name: "Evolution Production Co",
-    title: "Touring Ice & Dance, DMV",
-    initial: "E",
-  },
-];
 
 const strengths = [
   {
@@ -75,8 +55,8 @@ export default function About() {
       <div className="max-w-6xl mx-auto">
         <FadeIn>
           <p
-            className="text-[var(--rose-text)] text-xs font-sans font-semibold mb-4 tracking-widest"
-            style={{ letterSpacing: "0.2em" }}
+            className="code-label font-mono text-[var(--rose-text)] text-xs mb-4"
+            style={{ letterSpacing: "0.12em" }}
           >
             ABOUT
           </p>
@@ -145,35 +125,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* Testimonials */}
-        <FadeIn delay={0.3}>
-          <div className="mt-20 pt-16 border-t border-[var(--border)]">
-            <p className="text-[var(--rose-text)] text-xs font-sans font-semibold mb-10" style={{ letterSpacing: "0.2em" }}>
-WHAT CLIENTS SAY
-            </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              {testimonials.map((t, i) => (
-                <FadeIn key={t.name} delay={0.1 + i * 0.08}>
-                  <div className="bg-white border border-[var(--border)] rounded-sm p-7 flex flex-col h-full hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.07)] transition-all duration-300">
-                    <div className="font-serif text-4xl leading-none text-[var(--rose)] mb-4 select-none" aria-hidden>&ldquo;</div>
-                    <p className="font-sans font-light text-[var(--charcoal)] text-sm leading-loose flex-grow mb-6">
-                      {t.quote}
-                    </p>
-                    <div className="flex items-center gap-3 pt-5 border-t border-[var(--border)]">
-                      <div className="w-8 h-8 rounded-full bg-[var(--gold)] flex items-center justify-center shrink-0">
-                        <span className="font-serif text-xs font-medium text-[var(--charcoal)]">{t.initial}</span>
-                      </div>
-                      <div>
-                        <p className="font-sans text-sm font-medium text-[var(--charcoal)]">{t.name}</p>
-                        <p className="font-sans text-xs text-[var(--taupe)]">{t.title}</p>
-                      </div>
-                    </div>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </FadeIn>
       </div>
     </section>
   );

@@ -7,6 +7,10 @@ import About from "./About";
 import Work from "./Work";
 import Services from "./Services";
 import TechStack from "./TechStack";
+import Reviews from "./Reviews";
+import Outcomes from "./Outcomes";
+import Faq from "./Faq";
+import NowBuilding from "./NowBuilding";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import ScrollProgress from "./ScrollProgress";
@@ -25,8 +29,12 @@ export function PortfolioV1() {
         <Marquee />
         <About />
         <Work />
+        <Reviews />
+        <Outcomes />
         <Services />
         <TechStack />
+        <Faq />
+        <NowBuilding />
         <Contact />
         <Footer />
       </main>

@@ -2,7 +2,9 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { HoneypotField, useSpamGuard } from "./HoneypotField";
+import { StatusPill } from "./BrowserWindow";
 
 function FadeIn({
   children,
@@ -29,16 +31,26 @@ function FadeIn({
   );
 }
 
+// Keep in sync with REASONS in app/api/contact/route.ts.
+const REASONS = [
+  "Build a new app",
+  "Rescue an existing app",
+  "Hire me (contract or fractional)",
+  "AI agents or automation",
+  "Something else",
+];
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    reason: "",
     message: "",
   });
   const [sent, setSent] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -64,35 +76,35 @@ export default function Contact() {
 
         {/* How I Work strip */}
         <FadeIn>
-          <p className="text-[var(--rose-text)] text-xs font-sans font-semibold mb-10" style={{ letterSpacing: "0.2em" }}>
+          <p className="code-label font-mono text-[var(--rose-text)] text-xs mb-10" style={{ letterSpacing: "0.12em" }}>
             THE PROCESS
           </p>
           <div className="grid md:grid-cols-3 gap-6 mb-20 pb-16 border-b border-[var(--border)]">
             {[
-              { number: "01", title: "Discovery or Audit", desc: "New build: we map the business and goals first. Rescue: I audit the codebase and tell you plainly what it needs." },
-              { number: "02", title: "Build", desc: "I design and develop the system, keeping you in the loop at every milestone." },
-              { number: "03", title: "Launch & Iterate", desc: "We ship, measure, and refine until it works exactly as intended, and it keeps getting better." },
+              { cmd: "discover --or-audit", title: "Discovery or Audit", desc: "New build: we map the business and goals first. Rescue: I audit the codebase and tell you plainly what it needs." },
+              { cmd: "build", title: "Build", desc: "I design and develop the system, keeping you in the loop at every milestone." },
+              { cmd: "ship && handoff", title: "Launch & Hand Off", desc: "We ship and refine, then I document it and train your team to run it." },
             ].map((step, i) => (
-              <FadeIn key={step.number} delay={i * 0.1}>
-                <div className="flex gap-5 items-start">
-                  <span className="font-serif text-[var(--gold)] text-sm font-medium shrink-0 pt-1">{step.number}</span>
-                  <div>
-                    <h4 className="font-serif text-lg font-medium text-[var(--charcoal)] mb-2">{step.title}</h4>
-                    <p className="text-[var(--taupe)] text-sm font-sans font-light leading-relaxed">{step.desc}</p>
-                  </div>
+              <FadeIn key={step.cmd} delay={i * 0.1} className="h-full">
+                <div className="relative h-full bg-[var(--warm-gray)] border border-[var(--border)] rounded-2xl p-6 hover:-translate-y-1 hover:border-[var(--rose)] transition-all duration-300">
+                  <code className="font-mono text-[11.5px] text-[var(--charcoal)] bg-[#fffaf3] border border-[#ecdcc0] rounded-md px-2.5 py-1">
+                    <span className="text-[var(--rose)]">$ </span>{step.cmd}
+                  </code>
+                  <h4 className="font-serif text-xl font-medium text-[var(--charcoal)] mt-5 mb-2">{step.title}</h4>
+                  <p className="text-[var(--taupe)] text-sm font-sans font-light leading-relaxed">{step.desc}</p>
                 </div>
               </FadeIn>
             ))}
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-16 md:gap-24">
+        <div className="grid md:grid-cols-2 gap-16 md:gap-24 md:items-center">
           {/* Left */}
           <div>
             <FadeIn>
               <p
-                className="text-[var(--rose-text)] text-xs font-sans font-semibold mb-4 tracking-widest"
-                style={{ letterSpacing: "0.2em" }}
+                className="code-label font-mono text-[var(--rose-text)] text-xs mb-4"
+                style={{ letterSpacing: "0.12em" }}
               >
                 CONTACT
               </p>
@@ -109,6 +121,18 @@ export default function Contact() {
               <p className="text-[var(--taupe)] font-sans font-light text-base leading-relaxed mb-10 max-w-sm">
                 A new app, one that stalled, or a role on your team. Tell me what you have and where it hurts. I reply within 24 to 48 hours.
               </p>
+            </FadeIn>
+
+            <FadeIn delay={0.15}>
+              <div className="relative w-56 sm:w-64 aspect-[4/5] mb-12">
+                <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border border-[var(--gold)] opacity-60" />
+                <div className="relative h-full rounded-2xl overflow-hidden shadow-[0_30px_60px_-28px_rgba(107,100,96,0.55)]">
+                  <Image src="/chanel.jpeg" alt="Chanel Hicks-Gray" fill sizes="256px" className="object-cover object-top" />
+                </div>
+                <div className="absolute -bottom-4 -right-6 sm:-right-16 float-y">
+                  <StatusPill>Replies in 24 to 48 hrs</StatusPill>
+                </div>
+              </div>
             </FadeIn>
 
             <FadeIn delay={0.2}>
@@ -222,6 +246,32 @@ export default function Contact() {
                     className="w-full bg-transparent border border-[var(--border)] rounded-sm px-4 py-3.5 text-sm font-sans text-[var(--charcoal)] placeholder:text-[var(--border)] focus:outline-none focus:border-[var(--gold)] transition-colors duration-300"
                     placeholder="you@example.com"
                   />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="reason"
+                    className="block text-xs font-sans font-medium text-[var(--taupe)] mb-2"
+                    style={{ letterSpacing: "0.1em" }}
+                  >
+                    REASON
+                  </label>
+                  <div className="relative">
+                    <select
+                      id="reason"
+                      name="reason"
+                      required
+                      value={formData.reason}
+                      onChange={handleChange}
+                      className={`w-full appearance-none bg-transparent border border-[var(--border)] rounded-sm px-4 py-3.5 pr-10 text-sm font-sans focus:outline-none focus:border-[var(--gold)] transition-colors duration-300 ${formData.reason ? "text-[var(--charcoal)]" : "text-[var(--taupe)]/60"}`}
+                    >
+                      <option value="" disabled>What brings you here?</option>
+                      {REASONS.map((r) => (
+                        <option key={r} value={r}>{r}</option>
+                      ))}
+                    </select>
+                    <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 font-mono text-xs text-[var(--rose)]" aria-hidden>▾</span>
+                  </div>
                 </div>
 
                 <div>

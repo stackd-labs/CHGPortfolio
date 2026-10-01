@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -88,4 +88,38 @@ section[id],
   .font-sans {
     font-family: 'DM Sans', -apple-system, sans-serif;
   }
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+  }
+}
+
+/* V1 tech-forward layer: grid backdrop, floating windows, parallax layers */
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(196, 84, 122, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 84, 122, 0.09) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 70% 65% at 65% 45%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 65% at 65% 45%, #000 30%, transparent 75%);
+}
+.float-y {
+  animation: float-y 9s ease-in-out infinite;
+}
+@keyframes float-y {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
+.p-layer {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.code-label::before {
+  content: "// ";
+}
+@media (prefers-reduced-motion: reduce) {
+  .float-y { animation: none; }
+  .p-layer { transition: none; }
 }
