@@ -48,7 +48,7 @@ const categories = [
     items: [
       { name: "Stripe", note: "Checkout · Webhooks · Subscriptions" },
       { name: "PayPal", note: "Vaulted cards · Invoicing" },
-      { name: "Resend", note: "Transactional & campaign email" },
+      { name: "Resend · Emailit", note: "Transactional & campaign email" },
       { name: "Google Workspace", note: "Sheets · Drive · Gmail APIs" },
     ],
   },
@@ -87,7 +87,7 @@ function FadeIn({
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <motion.div
+    <motion.div data-motion-reveal
       ref={ref}
       initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -138,7 +138,7 @@ export default function TechStack() {
                 </div>
                 <ul className="space-y-3">
                   {cat.items.map((item, ii) => (
-                    <motion.li
+                    <motion.li data-motion-reveal
                       key={item.name}
                       initial={{ opacity: 0, x: -8 }}
                       whileInView={{ opacity: 1, x: 0 }}

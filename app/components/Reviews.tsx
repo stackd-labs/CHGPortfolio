@@ -23,7 +23,6 @@ const reviews: Review[] = [
     color: "#2f4b5c",
     quote:
       "Chanel replaced three separate tools with one platform that actually fits how we work. Placements, billing, and inventory finally live in one place, and her training meant our team was running it confidently from day one.",
-    link: { label: "see the build", href: "#work" },
   },
   {
     name: "Capital Core Dance Studio",

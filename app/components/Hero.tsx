@@ -10,12 +10,30 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export default function Hero() {
   return (
     <section className="relative overflow-x-clip">
+      {/* Desk photo backdrop */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundColor: "#d9c3a5",
+          backgroundImage: "url(/desk.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* light pink veil: photo is only a hint behind it */}
+        <div className="absolute inset-0 bg-[rgba(251,238,243,0.86)]" />
+        {/* extra pink hue */}
+        <div className="absolute inset-0 bg-[#ff666b]/20" />
+        {/* fade into the next section */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[var(--rose)]" />
+      </div>
       <div className="grid-bg" />
       <div className="min-h-screen flex items-center px-6 md:px-12 pt-28 pb-20 max-w-6xl mx-auto relative">
         <div className="w-full grid lg:grid-cols-[1.1fr_1fr] gap-14 lg:gap-10 items-center">
           {/* LEFT */}
           <div>
-            <motion.div
+            <motion.div data-motion-reveal
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -30,39 +48,39 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            <motion.p
+            <motion.p data-motion-reveal
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="code-label font-mono text-[var(--rose)] text-xs md:text-sm mt-8 mb-5"
+              className="code-label font-mono font-semibold text-[#8a2549] text-xs md:text-sm mt-8 mb-5"
               style={{ letterSpacing: "0.12em" }}
             >
               CHANEL HICKS-GRAY
             </motion.p>
 
-            <motion.h1
+            <motion.h1 data-motion-reveal
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.35, ease }}
-              className="font-serif text-[2.7rem] md:text-6xl lg:text-[4.1rem] xl:text-[4.4rem] font-semibold text-[var(--charcoal)] leading-[0.98] mb-7"
+              className="font-serif text-[2.7rem] md:text-6xl lg:text-[3.8rem] xl:text-[4rem] font-bold tracking-tight text-[#1a1a1a] leading-[0.98] mb-7 [text-shadow:0_2px_18px_rgba(255,255,255,0.75)]"
             >
               I build your app.
               <br />
-              Or I{"’"}ll <em className="text-[var(--rose)] not-italic">rescue it.</em>
+              Or I{"’"}ll <em className="text-[#8a2549] not-italic">rescue it.</em>
             </motion.h1>
 
-            <motion.p
+            <motion.p data-motion-reveal
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-[var(--taupe)] text-base md:text-lg font-sans font-light max-w-[44ch] leading-relaxed mb-9"
+              className="text-[var(--charcoal)] text-base md:text-lg font-sans font-normal max-w-[44ch] leading-relaxed mb-9"
             >
               AI architect and builder. I ship production systems with real auth,
               real payments, and real users, and I take over the ones that stalled,
               broke, or got vibe-coded into a corner.
             </motion.p>
 
-            <motion.div
+            <motion.div data-motion-reveal
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.75 }}
@@ -90,14 +108,14 @@ export default function Hero() {
               </a>
             </motion.div>
 
-            <motion.div
+            <motion.div data-motion-reveal
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
               className="flex flex-wrap items-center gap-8 mt-10 pt-7 border-t border-[var(--border)]"
             >
               {[
-                { value: "5", label: "LIVE CLIENT SYSTEMS" },
+                { value: "6", label: "BUILDS SHOWN BELOW" },
                 { value: "6+", label: "INDUSTRIES" },
                 { value: "Web · AI · Games", label: "WHAT I SHIP" },
               ].map((stat) => (
@@ -112,7 +130,7 @@ export default function Hero() {
           </div>
 
           {/* RIGHT: floating scene */}
-          <motion.div
+          <motion.div data-motion-reveal
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease }}
@@ -132,9 +150,9 @@ export default function Hero() {
               <div data-depth="22" className="p-layer absolute top-[250px] sm:top-[290px] -left-2 w-[62%] sm:w-[300px] z-[3]">
                 <div className="float-y" style={{ animationDelay: "-3s" }}>
                   <BrowserWindow
-                    src="/work/bouncefx.png"
-                    alt="Bounce FX Party Rentals booking site"
-                    url="bouncefxpartyrentals.com"
+                    src="/work/villa.png"
+                    alt="Villa Management Group website"
+                    url="villamanagegroup.com"
                     sizes="300px"
                   />
                 </div>

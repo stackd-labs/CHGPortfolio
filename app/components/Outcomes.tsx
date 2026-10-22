@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const outcomes = [
   { big: "3 → 1", who: "Villa Concierge Co", desc: "Three separate tools replaced by one operations platform." },
   { big: "2 wks", who: "Evolution Production Co", desc: "Full brand site shipped with zero revision rounds." },
-  { big: "Monthly", who: "Dance Studio Portal", desc: "Tuition billed automatically through PayPal, in production." },
+  { big: "1 system", who: "Bounce FX Party Rentals", desc: "Booking, Stripe payments, and admin in one portal they own." },
 ];
 
 export default function Outcomes() {
@@ -21,7 +21,7 @@ export default function Outcomes() {
         </h2>
         <div className="grid md:grid-cols-3 mt-12 border-t border-[var(--charcoal)]">
           {outcomes.map((o, i) => (
-            <motion.div
+            <motion.div data-motion-reveal
               key={o.who}
               initial={{ y: 16 }}
               whileInView={{ y: 0 }}

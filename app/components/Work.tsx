@@ -6,28 +6,28 @@ import { BrowserWindow } from "./BrowserWindow";
 
 const projects = [
   {
-    name: "Dance Studio Portal",
-    shot: "/work/dsp.png",
-    url: "studio.capitalcoredance.com",
-    category: "Studio Operations Platform",
+    name: "Stackd Excel",
+    shot: "/work/excel.png",
+    url: "excel.stackdstudiosai.com",
+    category: "Work Marketplace",
     description:
-      "The live operating system for a dance studio: enrollment, trials, recurring tuition billing with PayPal, parent and instructor portals, website intake, and family email campaigns. Real auth, row-level security, real money.",
-    outcome: "Runs the studio's day to day, in production.",
-    href: "https://studio.capitalcoredance.com",
-    tags: ["Next.js", "Supabase RLS", "PayPal", "Resend"],
+      "A work marketplace where people start with five-minute micro tasks, pass free skill checks, and move up through six levels to projects, shifts, and jobs. Businesses post work free or hand it to Stackd Managed. Opening soon, waitlist is live.",
+    outcome: "Four work types and six verified levels, one marketplace.",
+    href: "https://excel.stackdstudiosai.com",
+    tags: ["Next.js", "Marketplace", "Skill Checks"],
     accent: true,
     comingSoon: false,
   },
   {
-    name: "Bounce FX Party Rentals",
-    shot: "/work/bouncefx.png",
-    url: "bouncefxpartyrentals.com",
-    category: "Rescue & Rebuild",
+    name: "Stackd Studios",
+    shot: "/work/stackd.png",
+    url: "stackdstudiosai.com",
+    category: "AI Build Lab",
     description:
-      "Moved a party rental business off Squarespace onto a custom booking site and admin portal: live inventory, bundle slots, Stripe checkout, and a CRM built from their old order history.",
-    outcome: "Booking, payments, and admin in one system they own.",
-    href: "https://www.bouncefxpartyrentals.com",
-    tags: ["Next.js", "Stripe", "Admin Portal"],
+      "My build lab. Where I design and ship AI products, agent tooling, and client systems, from first idea to live product.",
+    outcome: "Idea to live product in under 6 weeks.",
+    href: "https://www.stackdstudiosai.com",
+    tags: ["Strategy", "Product", "AI"],
     accent: false,
     comingSoon: false,
   },
@@ -45,15 +45,15 @@ const projects = [
     comingSoon: false,
   },
   {
-    name: "Villa Concierge Co",
+    name: "Villa Management Group",
     shot: "/work/villa.png",
-    url: "villa-group-conceirge2.vercel.app",
-    category: "Insurance Operations Platform",
+    url: "villamanagegroup.com",
+    category: "Property Activation Website",
     description:
-      "Operations system for an insurance relocation housing firm. Placements, housing inventory, carrier and adjuster contacts, and billing for ALE claims in one interface.",
-    outcome: "Replaced 3 separate tools with one unified platform.",
-    href: "https://villa-group-conceirge2.vercel.app/",
-    tags: ["Operations", "React", "Supabase"],
+      "Brand website for a property activation and asset solutions firm: services, property types, how it works, an operator page, and an inquiry form for owners.",
+    outcome: "A premium public face for the firm.",
+    href: "https://www.villamanagegroup.com/",
+    tags: ["Next.js", "Brand Site", "Inquiry Form"],
     accent: false,
     comingSoon: false,
   },
@@ -71,15 +71,15 @@ const projects = [
     comingSoon: false,
   },
   {
-    name: "Stackd Studios",
-    shot: "/work/stackd.png",
-    url: "stackdstudiosai.com",
-    category: "AI Build Lab",
+    name: "Bounce FX Party Rentals",
+    shot: "/work/bouncefx.png",
+    url: "bouncefxpartyrentals.com",
+    category: "Rescue & Rebuild",
     description:
-      "My build lab. Where I design and ship AI products, agent tooling, and client systems, from first idea to live product.",
-    outcome: "Idea to live product in under 6 weeks.",
-    href: "https://www.stackdstudiosai.com",
-    tags: ["Strategy", "Product", "AI"],
+      "Moved a party rental business off Squarespace onto a custom booking site and admin portal: live inventory, bundle slots, Stripe checkout, and a CRM built from their old order history.",
+    outcome: "Booking, payments, and admin in one system they own.",
+    href: "https://www.bouncefxpartyrentals.com",
+    tags: ["Next.js", "Stripe", "Admin Portal"],
     accent: false,
     comingSoon: false,
   },
@@ -103,7 +103,7 @@ function FadeIn({
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <motion.div
+    <motion.div data-motion-reveal
       ref={ref}
       initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -126,10 +126,10 @@ export default function Work() {
           </p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
             <h2 className="font-serif text-4xl md:text-5xl font-medium text-[var(--charcoal)] max-w-xl leading-tight">
-              Systems running in the real world.
+              Things I&apos;ve built and shipped.
             </h2>
             <p className="text-[var(--taupe)] font-sans font-light text-base max-w-xs leading-relaxed">
-              Every window is the live site. Click through to the real thing.
+              Every window is the real site. Excel is pre-launch and PathBuilders is a public mock.
             </p>
           </div>
         </FadeIn>

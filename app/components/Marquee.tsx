@@ -11,15 +11,12 @@ const row2 = [
   "Team Enablement",
 ];
 
-function Row({ items, reverse = false }: { items: string[]; reverse?: boolean }) {
-  const doubled = [...items, ...items, ...items];
+function Row({ items }: { items: string[] }) {
+  const doubled = items;
   return (
     <div className="overflow-hidden">
       <div
-        className="flex gap-0 whitespace-nowrap"
-        style={{
-          animation: `marquee${reverse ? "-reverse" : ""} ${reverse ? 28 : 22}s linear infinite`,
-        }}
+        className="flex flex-wrap justify-center gap-y-3"
       >
         {doubled.map((item, i) => (
           <span
@@ -40,7 +37,7 @@ export default function Marquee() {
   return (
     <div className="py-7 border-y border-[var(--rose)] bg-[var(--rose)] overflow-hidden space-y-3">
       <Row items={row1} />
-      <Row items={row2} reverse />
+      <Row items={row2} />
     </div>
   );
 }

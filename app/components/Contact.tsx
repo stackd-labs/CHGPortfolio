@@ -19,7 +19,7 @@ function FadeIn({
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <motion.div
+    <motion.div data-motion-reveal
       ref={ref}
       initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -48,6 +48,7 @@ export default function Contact() {
     message: "",
   });
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -61,13 +62,20 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...formData, ...guard.fields() }),
-    });
-    setLoading(false);
-    if (res.ok) setSent(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, ...guard.fields() }),
+      });
+      if (!res.ok) throw new Error("Your message could not be sent. Please try again or email chanel@stackdstudiosai.com.");
+      setSent(true);
+    } catch {
+      setError("Your message could not be sent. Please try again or email chanel@stackdstudiosai.com.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -196,7 +204,7 @@ export default function Contact() {
           {/* Right: Form */}
           <FadeIn delay={0.15}>
             {sent ? (
-              <div className="flex flex-col justify-center h-full">
+              <div role="status" className="flex flex-col justify-center h-full">
                 <div className="w-10 h-px bg-[var(--gold)] mb-6" />
                 <h3 className="font-serif text-2xl text-[var(--charcoal)] mb-3">
                   Message received.
@@ -206,7 +214,8 @@ export default function Contact() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" aria-busy={loading}>
+                {error && <p role="alert" className="text-red-800">{error}</p>}
                 <HoneypotField value={guard.hp} onChange={guard.setHp} />
                 <div>
                   <label

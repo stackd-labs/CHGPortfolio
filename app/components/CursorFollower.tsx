@@ -24,8 +24,8 @@ export default function CursorFollower() {
 
   return (
     <>
-      <motion.div
-        className="fixed top-0 left-0 w-9 h-9 rounded-full border border-[var(--gold)] pointer-events-none z-[998] hidden md:block"
+      <motion.div data-motion-reveal
+        className="fixed top-0 left-0 w-9 h-9 rounded-full border border-[var(--gold)] pointer-events-none z-[998] hidden md:block motion-reduce:!hidden"
         style={{
           x: ringX,
           y: ringY,
@@ -34,8 +34,8 @@ export default function CursorFollower() {
           opacity: 0.55,
         }}
       />
-      <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[var(--rose)] pointer-events-none z-[999] hidden md:block"
+      <motion.div data-motion-reveal
+        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[var(--rose)] pointer-events-none z-[999] hidden md:block motion-reduce:!hidden"
         style={{
           x: dotX,
           y: dotY,

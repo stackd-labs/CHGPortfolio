@@ -22,9 +22,9 @@ export function PortfolioV1() {
     <>
       <Grain />
       <CursorFollower />
-      <main className="relative">
-        <ScrollProgress />
-        <Nav />
+      <ScrollProgress />
+      <Nav />
+      <main id="main-content" tabIndex={-1} className="relative">
         <Hero />
         <Marquee />
         <About />
@@ -36,8 +36,8 @@ export function PortfolioV1() {
         <Faq />
         <NowBuilding />
         <Contact />
-        <Footer />
       </main>
+      <Footer />
     </>
   );
 }

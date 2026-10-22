@@ -25,7 +25,7 @@ export function BrowserWindow({
         <span className="w-2 h-2 rounded-full bg-[#f3d58f]" />
         <span className="w-2 h-2 rounded-full bg-[#e2ded7]" />
         <span className="ml-2.5 flex-1 truncate font-mono text-[10px] text-[var(--taupe)] bg-[var(--warm-gray)] rounded px-2 py-0.5">
-          <span className="text-emerald-600">https://</span>
+          <span className="text-emerald-800">https://</span>
           {url}
         </span>
       </div>
@@ -51,7 +51,7 @@ export function Terminal({
       {lines.map((l, i) => (
         <div key={i} className={l.kind === "dim" ? "text-[var(--taupe)]" : ""}>
           {l.kind === "cmd" && <span className="text-[var(--rose)]">$ </span>}
-          {l.kind === "ok" && <span className="text-emerald-600">✓ </span>}
+          {l.kind === "ok" && <span className="text-emerald-800">✓ </span>}
           {l.text}
         </div>
       ))}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import MotionPreferences from "./components/MotionPreferences";
 
 export const metadata: Metadata = {
   title: "Chanel Hicks-Gray | AI Architect & Builder",
@@ -15,8 +16,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <a className="skip-link" href="#main-content">Skip to main content</a>
+        <MotionPreferences>{children}</MotionPreferences>
+        <CookieNotice />
       </body>
     </html>
   );
 }
+import CookieNotice from './CookieNotice'
